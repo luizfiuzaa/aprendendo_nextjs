@@ -18,11 +18,16 @@ export const metadata: Metadata = {
   }
 }
 
+export const revalidate = 60;
+
 export default function Home() {
+
+  const randomNumber = Math.random() * 10;
+
   return (
     <div className="">
         <h1>Hello World!!</h1>
-
+      <h2>Numero Aleátório: {randomNumber}</h2>
     </div>
 
   )

@@ -7,12 +7,14 @@ export interface PostProps {
   userId: number;
 }
 
+export const revalidate = 60;
+
 export interface ResponseProps {
   posts: PostProps[];
 }
 
 export default async function PostsPage() {
-  const response = await fetch("https://dummyjson.com/posts");
+  const response = await fetch("https://dummyjson.com/posts",{cache: 'force-cache', next: {revalidate: 60}});
   const data: ResponseProps = await response.json();
 
   async function handleFetchPosts() {
